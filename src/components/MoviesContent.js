@@ -12,7 +12,7 @@ const MoviesContent = ({ title, data, searchData, className }) => {
 
   return (
     <Container>
-      <div className="sm:pl-[60px] px-[20px] py-[10px]">
+      <div className="sm:pl-[60px] pl-[20px] py-[10px]">
         <div className="">
           <div className="mr-20px">
             <h2 className="text-[1.2rem] font-semibold whitespace-nowrap pb-[12px]">
@@ -25,7 +25,7 @@ const MoviesContent = ({ title, data, searchData, className }) => {
           {moviesData.map((movie) => (
             <div
               key={movie.id}
-              className="sm:w-[150px] sm:min-w-[150px] w-[180px] min-w-[180px]"
+              className="w-[180px] min-w-[180px]"
             >
               <Link>
                 <img

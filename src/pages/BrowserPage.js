@@ -20,7 +20,7 @@ const BrowserPage = () => {
             <Video />
           </div>
 
-          <div className=" relative z-20  flex flex-col sm:-mt-[150px] sm:bottom-10">
+          <div className=" relative z-20  flex flex-col sm:-mt-[38px] sm:bottom-10">
             {TMDBMedia.map((item) => (
               <MoviesContent
                 key={item.id}
