@@ -10,7 +10,7 @@ import { nonvol, vol } from "../constant/constant";
 
 const Video = () => {
   return (
-    <div className="relative sm:w-full sm:h-screen pb-9/16">
+    <div className="relative sm:w-full sm:h-screen">
       {" "}
       {/* Maintain aspect ratio */}
       <MediaPlayer
@@ -23,7 +23,7 @@ const Video = () => {
         // autoplay
         muted
         aspectRatio="16/9"
-        className="absolute top-0 left-0 w-full h-full" // Ensure full width and height
+        className="absolute top-0 left-0 w-full h-full"
       >
         <MediaProvider>
           <div className="bg-black w-full h-full bg-opacity-50"></div>{" "}
