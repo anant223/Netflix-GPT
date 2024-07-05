@@ -7,7 +7,7 @@ const Features = () => {
       {fewObjects.map((obj, index) => (
         <section key={index} className="sm:py-[80px] py-[50px] border-t-8 border-gray-800 bg-black relative"
 >
-          <div className="max-w-[1170px] mx-auto">
+          <div className="max-w-[1550px] mx-auto px-[50px]">
             <div
               className={`flex sm:flex-1 flex-col sm:px-[4%] items-center ${
                 index % 2 ? `sm:flex-row-reverse` : `sm:flex-row`

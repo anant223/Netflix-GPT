@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className=" text-gray-400 sm:py-[80px] py-[50px] border-t-8 border-gray-800 bg-black relative">
       <Container>
-        <div className=" sm:px-[60px] px-[40px] ">
+        <div className=" sm:px-[80px] px-[40px] ">
           <div>
             Questions? Call
             <a href="0000-800-919-1694">0000-800-919-1694</a>
