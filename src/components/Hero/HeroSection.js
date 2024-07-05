@@ -38,7 +38,7 @@ const HeroSection = () => {
     <Backgroud>
       <Header />
       <Container>
-        <div className="sm:py-[150px] py-[50px] px-12 text-center">
+        <div className=" mx-auto sm:py-[180px] py-[50px] px-12 text-center">
           <h1 className="sm:text-5xl text-2xl font-[900]">
             {language.heading}
           </h1>
