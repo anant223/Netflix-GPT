@@ -25,18 +25,18 @@ const Approuter = createBrowserRouter([
       {
         path: "browser",
         element: <BrowserPage />,
-        // loader: async () => {
-        //   try {
-        //     const user = await authService.getCurrentUser();
-        //     if (!user) {
-        //       throw new Error("No user found");
+        loader: async () => {
+          try {
+            const user = await authService.getCurrentUser();
+            if (!user) {
+              throw new Error("No user found");
 
-        //     }
-        //     return { user };
-        //   } catch (error) {
-        //     return redirect("/login");
-        //   }
-        // },
+            }
+            return user ;
+          } catch (error) {
+            return redirect("/login");
+          }
+        },
       },
 
       {

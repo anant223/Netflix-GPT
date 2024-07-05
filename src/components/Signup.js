@@ -49,7 +49,7 @@ const Signup = () => {
             <h1 className="text-[24px] font-bold my-10">
               Create a password to start your membership
             </h1>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               {signupFields.map((field, index) => (
                 <div key={index} className=" relative my-[20px]">
                   <label htmlFor="email" className="">

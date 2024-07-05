@@ -21,14 +21,24 @@ const Login = () => {
     try {
       const emailVal = loginRef.current.email.value;
       const passwordVal = loginRef.current.password.value;
-      const validateResult = validate(emailVal, passwordVal);
-      setIsValid(validateResult)
-      const session = await authService.login(emailVal, passwordVal);
-      if(session) {
-        const userData = authService.getCurrentUser()
-        if(userData)dispatch(authLogin(userData))
-        navigate("/browser")
+      if(!emailVal || !passwordVal){
+        setErr("email and password required")
       }
+      const validateResult = validate(emailVal, passwordVal);
+      if(validateResult === "Email and Password are valid"){
+        const session = await authService.login(emailVal, passwordVal);
+          if (session) {
+            const userData = authService.getCurrentUser();
+            if (userData) {
+              dispatch(authLogin(userData));
+              navigate("/browser");
+            }
+            
+          }
+      }
+     
+      
+    
     } catch (error) {
       setErr(error.message)
     }
