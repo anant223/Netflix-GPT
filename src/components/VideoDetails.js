@@ -3,7 +3,7 @@ import Btn from './Btn'
 
 const VideoDetails = ({ desc, title }) => {
   return (
-    <div className=" relative sm:pl-[60px] pl-[10px] sm:pr-[50rem] sm:text-[1.2vw] text-[1.8vw] pr-[12rem]">
+    <div className=" relative sm:pl-[60px] pl-[10px] sm:pr-[13.9rem] sm:text-[1.2vw] text-[1.8vw] pr-[12rem]">
       <div className=" block text-justify relative">
         <h2 className=" font-extrabold sm:text-3xl">{title}</h2>
         <p className="mt-[20px] line-clamp-3">{desc}</p>

@@ -1,3 +1,5 @@
+https://movienest.vercel.app/
+
 # Netflix_GPT
 
   * Netflix_GPT is a web application that combines the power of GPT-3 with the sleek    interface of Netflix. Built with React, Redux Toolkit, and Appwrite, this project showcases the integration of advanced AI with modern web development frameworks to create an intuitive and interactive user experience.
