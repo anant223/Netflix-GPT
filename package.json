@@ -23,6 +23,8 @@
     "react-responsive": "^10.0.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "react-shimmer-effects": "^1.0.3",
+    "shimmer-effects-react": "^1.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

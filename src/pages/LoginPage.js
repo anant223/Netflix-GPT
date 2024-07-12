@@ -4,11 +4,11 @@ import { Login} from '../components/Main';
 
 const LoginPage = () => {
   return (
-    <div>
       <Background>
-          <Login />
+        <div className=" py-[120px]">
+            <Login />
+        </div>
       </Background>
-    </div>
   );
 }
 

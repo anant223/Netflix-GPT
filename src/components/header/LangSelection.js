@@ -1,6 +1,6 @@
 import { Language } from '../../constant/constant';
 import { useDispatch} from 'react-redux';
-import { choosenLang } from '../../slice/langSlice';
+import { choosenLang } from '../../slice/preferencesSlice';
 
 
 const LangSelection = () => {

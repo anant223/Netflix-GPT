@@ -1,15 +1,21 @@
 import React from "react";
 
-const Btn = ({ name, icon, handleBtn, children, className, type = "button" }) => {
+const Btn = ({
+  name,
+  icon,
+  handleBtn,
+  className,
+  type = "button",
+
+}) => {
   return (
     <button
-      icon
       onClick={handleBtn}
-      className={`text-white ${className}`}
+      className={`${className}`}
       type={type}
     >
       {name}
-      {<span>{icon}</span>}
+      {icon && <span>{icon}</span>}
     </button>
   );
 };

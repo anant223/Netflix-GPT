@@ -7,7 +7,7 @@ import { loginFields } from '../constant/constant'
 import Input from './Input'
 import Btn from './Btn'
 import validate from "../utils/validate"
-import { Container, Footer, Header } from './Main'
+import { Container } from './Main'
 
 const Login = () => {
    const [err, setErr] = useState('')
@@ -46,7 +46,6 @@ const Login = () => {
 
   return (
     <div className=" text-white relative">
-      <Header />
       <Container>
         <div className=" relative max-w-[450px] max-h-[100vh] sm:mb-[50px] sm:px-[2%] mx-auto h-auto">
           <div className=" min-h-[540px] px-[68px] py-[48px] bg-black bg-opacity-80">
@@ -94,14 +93,7 @@ const Login = () => {
             </form>
           </div>
         </div>
-        {/* <div className="bg-black bg-opacity-85 p-8 rounded-lg shadow-lg w-full md:w-1/3 mx-0 md:mx-8">
-        <h2 className="text-3xl font-bold text-white mb-6 text-left">
-          Sign In
-        </h2>
-  
-      </div> */}
       </Container>
-      <Footer />
     </div>
   );
 }

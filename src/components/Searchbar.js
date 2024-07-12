@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Btn, Container, Input } from "./Main";
 import { IoSearchOutline } from "react-icons/io5";
 import OutsideClickHandler from "react-outside-click-handler";
@@ -23,7 +23,8 @@ const Searchbar = () => {
   const handleChange = (e) =>{
     setInput(e.target.value)
     if(e.target.value.length > 0) {
-      navigate("/browser/search")
+      console.log("Navigating to /browser/search"); // Add this line
+      navigate("/browser/search");
     }
   }
 

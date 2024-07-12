@@ -1,10 +1,10 @@
 import config from "../config/appwriteConfig";
-import { Client , Account, ID } from "appwrite";
-
+import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
   client = new Client();
   account;
+
   constructor() {
     this.client
       .setEndpoint(config.appwriteUrl)
@@ -20,41 +20,39 @@ export class AuthService {
         password
       );
       if (userAccount) {
-        // call another method
         return this.login(email, password);
-      } else {
-        return userAccount;
       }
+      return userAccount; 
     } catch (error) {
-      throw error;
+      throw error; 
     }
   }
 
   async login(email, password) {
     try {
       return await this.account.createEmailPasswordSession(email, password);
-
-    
     } catch (error) {
       console.log("Something went wrong with login", error);
+      throw error; 
     }
   }
 
   async getCurrentUser() {
     try {
-      return  await this.account.get();
+      const currentUser = await this.account.get();
+      return currentUser;
     } catch (error) {
-      console.log("Appwrite serive :: getCurrentUser :: error", error);
+      console.log("Appwrite service :: getCurrentUser :: error", error);
+      throw error; 
     }
-
-    return null;
   }
 
   async logout() {
     try {
       await this.account.deleteSessions();
     } catch (error) {
-      console.log("Appwrite serviece :: logout:: erorr", error);
+      console.log("Appwrite service :: logout :: error", error);
+      throw error; // Throw the error for the caller to handle
     }
   }
 }

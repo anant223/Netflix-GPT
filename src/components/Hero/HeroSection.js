@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Backgroud, Btn, Container, Header, Input } from "../Main";
+import { Backgroud, Btn, Container, Input} from "../Main";
 import { useSelector } from "react-redux";
 import { lang } from "../../constant/constant";
 import { redirect, useNavigate } from "react-router-dom";
@@ -7,8 +7,7 @@ import { validateEmail } from "../../utils/validate";
 
 
 const HeroSection = () => {
-  const langKey = useSelector((state) => state.lang.value);
-  const authStaus = useSelector((state) => state.auth.status)
+  const langKey = useSelector((state) => state.preferences.value);
   const emailRef = useRef(null);
   const language = lang[langKey] || lang.en;
   const navigate = useNavigate();
@@ -36,9 +35,8 @@ const HeroSection = () => {
 
   return (
     <Backgroud>
-      <Header />
       <Container>
-        <div className=" mx-auto sm:py-[180px] py-[50px] px-12 text-center">
+        <div className=" sm:py-[190px] py-[50px] px-12 text-center">
           <h1 className="sm:text-5xl text-2xl font-[900]">
             {language.heading}
           </h1>
@@ -49,21 +47,23 @@ const HeroSection = () => {
 
           <div className="max-w-[36.625rem] mx-auto mt-[1.5rem] sm:px-[10px] px-[40px]">
             <form
-              className="grid sm:grid-cols-[70%_auto] grid-cols-1 gap-2"
-              onSubmit={(e) => e.preventDefault()} // Prevent default form submission
+              className={`grid sm:grid-cols-[70%_auto] grid-cols-1 gap-2`}
+              onSubmit={(e) => e.preventDefault()}
             >
-              {!authStaus && <Input
-                ref={emailRef}
-                type="email"
-                className="border bg-black bg-opacity-40 rounded-sm h-[50px] border-[#ccc] p-2 sm:w-full w-full mx-auto"
-                placeholder={language.inputPlaceholder}
-              />}
-              <Btn
-                handleBtn={authStaus ? navigate("/browser") : handleSignupBtn}
-                type="button"
-                className="bg-[#e50914] text-white rounded-sm h-[50px] sm:w-full w-[45.89%] mx-auto"
-                name={authStaus ? "Get back to your watch" : language.search}
-              />
+                <Input
+                  ref={emailRef}
+                  type="email"
+                  className="border bg-black bg-opacity-40 rounded-sm h-[50px] border-[#ccc] p-2 sm:w-full w-full mx-auto"
+                  placeholder={language.inputPlaceholder}
+                />
+              <div className=" mx-auto flex justify-center w-full">
+                <Btn
+                  handleBtn={ handleSignupBtn}
+                  type="button"
+                  className="bg-[#e50914] text-white rounded-sm h-[50px] sm:w-full w-[45.89%] mx-auto"
+                  name={language.search}
+                />
+              </div>
               <div className="relative">
                 <small>{message}</small>
               </div>

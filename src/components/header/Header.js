@@ -1,49 +1,48 @@
 import React from 'react'
 import {Link, useLocation} from "react-router-dom"
-import {Container, Btn, LangSelection, Logo, Logout} from "../Main"
-import { useSelector } from 'react-redux'
-import Menu from './Menu'
+import {Container, Btn, LangSelection, Logo} from "../Main"
+import Menu from "./Menu"
 
 const Header = () => {
-  const authStatus = useSelector((state) => state.auth.status);
   const location = useLocation();
+  const isRouterBrowse = location.pathname.startsWith("/browser");
 
 
   return (
     <>
-      { !authStatus ? <header
-      className={`mx-auto sm:px-[60px] px-4 w-full relative py-[1.5rem] z-40`}
-    >
-      <Container>
-        <div className={`flex justify-between items-center`}>
-          <div className="">
-            <Logo />
-          </div>
-          {!authStatus ? <div className="flex justify-end gap-2">
-            {location.pathname === "/" ? (
-              <div>
-                <LangSelection />
-              </div>
-            ) : null}
-            <div>
-              {(location.pathname === "/" || location.pathname === "/signup") ? (
-                <Link to="/login">
-                  <Btn
-                    name="Sign In"
-                    className={
-                      "bg-[#e50914] sm:p-[5px_25px] p-[7px_20px] rounded"
-                    }
-                  />
-                </Link>
-              ) : null}
+     {!isRouterBrowse ? <header
+        className={`mx-auto sm:px-[60px] px-4 w-full absolute py-[1.5rem] z-40`}
+      >
+        <Container>
+          <div className={`flex justify-between items-center`}>
+            <div className="">
+              <Logo />
             </div>
-          </div> : null}
-        </div>
-      </Container>
-    </header> :
-    <div className='absolute z-40 w-full'>
-      <Menu />
-    </div>}
+              <div className="flex justify-end gap-2">
+                {location.pathname === "/" ? (
+                  <div>
+                    <LangSelection />
+                  </div>
+                ) : null}
+                <div>
+                    <Link to="/login">
+                      <Btn
+                        name="Sign In"
+                        className={
+                          "bg-[#e50914] sm:p-[5px_25px] p-[7px_20px] rounded"
+                        }
+                      />
+                    </Link>
+                </div>
+              </div>
+          </div>
+        </Container>
+      </header>
+      :
+      <div className="absolute z-40 w-full">
+        <Menu />
+      </div>
+      }
     </>
   );
 }

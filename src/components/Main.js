@@ -11,8 +11,9 @@ import Login from "./Login";
 import Features from "./features/Features";
 import Faq from "./faq/Faq";
 import HeroSection from "./Hero/HeroSection";
-import Video from "./Video";
 import MoviesContent from "./MoviesContent";
+import Video from "./Video"
+import VideoDetails from "./VideoDetails";
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   HeroSection,
   Video,
   MoviesContent,
+  VideoDetails,
 };

@@ -1,34 +1,50 @@
-import React from 'react'
-import { Container, Video, MoviesContent} from "../components/Main"
+import React from "react";
+import {
+  Container,
+  Video,
+  MoviesContent,
+  VideoDetails,
+} from "../components/Main";
 import { TMDBMedia } from "../constant/TMDB";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import TMDB_API_OPTION from "../config/tmdbConfig";
+import useApi from "../hooks/useApi";
+import ShimmerComponent from "../shimmer/Shimmer";
 
 const BrowserPage = () => {
+  const { state, isLoading } = useApi(TMDBMedia[0].api, TMDB_API_OPTION);
 
-  return (
-    <div className=" bg-black h-auto relative">
+  const mediaMang = state?.results[0];
+  const mediaType = mediaMang?.media_type;
+  const mediaId = mediaMang?.id;
+
+  if (!state || !state.results || state.results.length === 0) {
+    return <ShimmerComponent/>;
+  }
+
+  return isLoading ? (
+    <ShimmerComponent />
+  ) : (
+    <div className="bg-black h-auto relative">
       <Container>
-        <Link>
-          <div className=" fixed right-[60px] bottom-[50px] bg-green-700 p-[1rem] rounded-full z-30 ">
-            <h2 className="text-white text-[1rem] flex justify-center items-center w-full">
-              GPT Movie Exposer
-            </h2>
-          </div>
-        </Link>
-        <div className=" text-white">
+        <div className="text-white">
           <div className="relative">
-            <Video />
+            <Video
+              media_id={mediaId}
+              media_type={mediaType === "tv" ? "tv" : "movie"}
+            />
+          </div>
+          <div className="absolute z-30 top-0 sm:py-[130px] py-[80px]">
+            <VideoDetails title={mediaMang?.title} desc={mediaMang?.overview} />
           </div>
 
-          <div className=" relative z-20  flex flex-col sm:-mt-[38px] sm:bottom-10">
+          <div className="relative z-20 flex flex-col sm:-mt-[38px] sm:bottom-10">
             {TMDBMedia.map((item) => (
               <MoviesContent
                 key={item.id}
                 title={item.title}
                 data={item.api}
-                className={
-                  "overflow-scroll scroll-smooth items-center overflow-x-hidden overflow-y-hidden flex gap-5 bg-black bg-opacity-40"
-                }
+                className="overflow-hidden scroll-smooth items-center overflow-y-hidden flex gap-5 bg-black bg-opacity-40"
               />
             ))}
           </div>
@@ -36,6 +52,6 @@ const BrowserPage = () => {
       </Container>
     </div>
   );
-}
+};
 
-export default BrowserPage
+export default BrowserPage;

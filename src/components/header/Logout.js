@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Btn } from "../Main";
 import authService from "../../appwrite/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,8 +20,8 @@ const Logout = () => {
   };
 
   return (
-    <div className="text-black">
-      {authStatus ? <Btn name="logout" handleBtn={handleLogout} className="text-black" /> : null}
+    <div className="text-white">
+      {authStatus ? <Btn name="Log out" handleBtn={handleLogout} className="text-white" /> : null}
     </div>
   );
 };

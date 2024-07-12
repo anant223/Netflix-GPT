@@ -1,41 +1,68 @@
-import React from "react";
+import React, { useRef} from "react";
 import useApi from "../hooks/useApi";
 import TMDB_API_OPTION from "../config/tmdbConfig";
-import { Container } from "./Main";
+import { Btn, Container } from "./Main";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MoviesContent = ({ title, data, searchData, className }) => {
+  const genre_id = useSelector((state) => state.preferences.id);
   const api = useApi(data, TMDB_API_OPTION);
   const results = api?.state?.results || [];
   const searchResult = searchData?.state?.results;
   const moviesData = searchResult?.length > 0 ? searchResult : results;
+  const scrollRef = useRef(null);
+
+  const crausalEvent = (direction) => {
+    const { current } = scrollRef;
+
+    if(current){
+      const { scrollLeft, clientWidth } = current;
+      if (direction === "l") {
+        current.scrollLeft = scrollLeft - clientWidth;
+      } else {
+        current.scrollLeft = scrollLeft + clientWidth;
+      }
+    }
+  };
+
 
   return (
     <Container>
-      <div className="sm:pl-[60px] pl-[20px] py-[10px]">
-        <div className="">
-          <div className="mr-20px">
-            <h2 className="text-[1.2rem] font-semibold whitespace-nowrap pb-[12px]">
-              <Link>{title}</Link>
-            </h2>
-          </div>
-          <div></div>
+      <div className="relative sm:pl-[60px] pl-[20px] py-[10px]">
+        <div>
+          <h2 className="text-[1.2rem] font-semibold whitespace-nowrap pb-[12px]">
+            <Link to="#">{title}</Link>
+          </h2>
         </div>
-        <div className={className}>
-          {moviesData.map((movie) => (
-            <div
-              key={movie.id}
-              className="w-[180px] min-w-[180px]"
-            >
-              <Link>
-                <img
-                  src={`https://media.themoviedb.org/t/p/w440_and_h660_face${movie?.poster_path}`}
-                  alt="poster"
-                  className="border border-white rounded-sm"
-                />
-              </Link>
-            </div>
-          ))}
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2  flex justify-between w-full px-[30px]">
+          <Btn
+            className={`font-bold text-6xl`}
+            icon={"‹"}
+            handleBtn={() => crausalEvent("l")}
+          />
+          <Btn
+            className={`font-bold text-6xl`}
+            icon={"›"}
+            handleBtn={() => crausalEvent("r")}
+          />
+        </div>
+        <div ref={scrollRef} className={`${className}`}>
+          {moviesData
+            .filter((ele) =>
+              genre_id ? ele.genre_ids.includes(Number(genre_id)) : true
+            )
+            .map((movie) => (
+              <div key={movie.id} className="w-[180px] min-w-[180px] m-[10px]">
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://media.themoviedb.org/t/p/w440_and_h660_face${movie.poster_path}`}
+                    alt={movie.title || "poster"}
+                    className="border border-white rounded-sm"
+                  />
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </Container>
