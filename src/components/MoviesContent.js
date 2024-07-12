@@ -35,15 +35,16 @@ const MoviesContent = ({ title, data, searchData, className }) => {
             <Link to="#">{title}</Link>
           </h2>
         </div>
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2  flex justify-between w-full px-[30px]">
+        <div className="absolute left-0 top-1/2 transform -translate-y-1/2  flex justify-between w-full sm:px-[30px] px-[10px]">
           <Btn
-            className={`font-bold text-6xl`}
-            icon={"‹"}
+            className={`text-4xl sm:6xl font-bold`}
+            name={"‹"}
             handleBtn={() => crausalEvent("l")}
           />
+
           <Btn
-            className={`font-bold text-6xl`}
-            icon={"›"}
+            className={` text-4xl sm:6xl font-bold`}
+            name={"›"}
             handleBtn={() => crausalEvent("r")}
           />
         </div>
@@ -53,7 +54,10 @@ const MoviesContent = ({ title, data, searchData, className }) => {
               genre_id ? ele.genre_ids.includes(Number(genre_id)) : true
             )
             .map((movie) => (
-              <div key={movie.id} className="w-[180px] min-w-[180px] m-[10px]">
+              <div
+                key={movie.id}
+                className="sm:w-[180px] sm:min-w-[180px] w-[168px] min-w-[168px] m-[10px]"
+              >
                 <Link to={`/movie/${movie.id}`}>
                   <img
                     src={`https://media.themoviedb.org/t/p/w440_and_h660_face${movie.poster_path}`}

@@ -54,7 +54,7 @@ const Searchbar = () => {
             <Btn
               handleBtn={handleSearchClick}
               name={<IoSearchOutline />}
-              className="text-[24px] absolute p-1"
+              className="text-[22px] sm:text-[25px] absolute p-1"
             />
           </div>
           <div>

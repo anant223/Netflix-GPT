@@ -10,7 +10,7 @@ const Logo = ({className}) =>{
           data-name="Group 635"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 110.999 30"
-          className={`sm:w-[148px] w-[130px] ${className}`}
+          className={`sm:w-[148px] w-[94px] ${className}`}
         >
           <path
             id="Path_1485"

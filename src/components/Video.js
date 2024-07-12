@@ -59,7 +59,7 @@ const CustomizeBtn = () => {
   return (
     <div className="">
       <MuteButton
-        className="vds-button text-white sm:bottom-[8rem] sm:right-[82px] right-[92px] bottom-12 p-1 absolute bg-transparent border border-white bg-opacity-75 rounded-full z-30"
+        className=" text-white sm:bottom-0 sm:right-[82px] right-[42px] bottom-0 p-1 absolute bg-transparent border border-white bg-opacity-75 rounded-full z-30"
         onClick={handleClick}
       >
         {isMute ? vol : nonvol}

@@ -25,7 +25,7 @@ const BrowserPage = () => {
   return isLoading ? (
     <ShimmerComponent />
   ) : (
-    <div className="bg-black h-auto relative">
+    <div className="bg-black relative">
       <Container>
         <div className="text-white">
           <div className="relative">
@@ -34,8 +34,11 @@ const BrowserPage = () => {
               media_type={mediaType === "tv" ? "tv" : "movie"}
             />
           </div>
-          <div className="absolute z-30 top-0 sm:py-[190px] py-[4rem]">
-            <VideoDetails title={mediaMang?.title} desc={mediaMang?.overview} />
+          <div className="absolute top-0 sm:py-[190px] z-30 py-[60px]">
+              <VideoDetails
+                title={mediaMang?.title}
+                desc={mediaMang?.overview}
+              />
           </div>
 
           <div className="relative z-20 flex flex-col sm:-mt-[38px] sm:bottom-10">
