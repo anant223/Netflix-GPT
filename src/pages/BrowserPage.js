@@ -34,7 +34,7 @@ const BrowserPage = () => {
               media_type={mediaType === "tv" ? "tv" : "movie"}
             />
           </div>
-          <div className="absolute z-30 top-0 sm:py-[16rem] py-[4rem]">
+          <div className="absolute z-30 top-0 sm:py-[190px] py-[4rem]">
             <VideoDetails title={mediaMang?.title} desc={mediaMang?.overview} />
           </div>
 
