@@ -8,16 +8,21 @@ const Logout = () => {
   const authStatus = useSelector((state) => state.auth.status)
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      await authService.logout();
-      dispatch(logout());
-      navigate("/");
-    } catch (error) {
-      console.log("error", error)
+const handleLogout = async () => {
+  try {
+    const user = await authService.getCurrentUser(); 
+    if (user) {
+      await authService.logout(); 
+      dispatch(logout()); 
+      navigate("/"); 
+    } else {
+      console.log("User is not logged in.");
     }
-  };
+  } catch (error) {
+    console.error("Error logging out:", error);
+  }
+};
+
 
   return (
     <div className="text-white">

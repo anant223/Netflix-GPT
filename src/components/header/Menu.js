@@ -137,7 +137,7 @@ const Menu = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-content rounded-box z-[1] mt-3 w-40 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-content rounded-box  mt-3 w-40 p-2 shadow relative z-30"
               >
                 <li>
                   <Link className="justify-between">

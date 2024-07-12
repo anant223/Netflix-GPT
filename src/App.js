@@ -32,16 +32,11 @@ const AppFunction = () => {
     fetchCurrentUser();
   }, [dispatch]);
 
-  return !loading ? (
+  return !loading ?  (
     <>
-      <RouterProvider
-        router={Approuter}
-        fallbackElement={<ShimmerComponent />}
-      />
+      <RouterProvider router={Approuter} fallbackElement={<ShimmerComponent/>} />
     </>
-  ) : (
-    <ShimmerComponent />
-  );
+  ) : <ShimmerComponent/>
 };
 
 function App() {
