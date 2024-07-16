@@ -36,7 +36,7 @@ const Video = ({ media_id, media_type, media_poster }) => {
           logLevel="warn"
           crossOrigin
           playsInline
-          // autoplay
+          autoplay
           muted
           aspectRatio="16/9"
           className="absolute top-0 left-0 w-full h-full"

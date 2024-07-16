@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import authService from '../appwrite/auth'
 import {loginFields as signupFields} from "../constant/constant"
 import {Btn, Container, Input} from "./Main"
@@ -13,8 +13,6 @@ const Signup = () => {
   const dispatch = useDispatch();
   const [isValid, setIsValid] = useState("");
   const registerRef = useRef({ email: null, password: null });
-  const location = useLocation();
-  const { emailVal } = location.state || {};
 
 
 
@@ -52,7 +50,7 @@ const Signup = () => {
             <form onSubmit={(e) => e.preventDefault()}>
               {signupFields.map((field, index) => (
                 <div key={index} className=" relative my-[20px]">
-                  <label htmlFor="email" className="">
+                  <label htmlFor="email" className="py-2">
                     {field.labelText}
                   </label>
                   <Input
@@ -67,7 +65,7 @@ const Signup = () => {
               <small className="text-red-500 my-4 ">{isValid || err}</small>
               <div className="mt-[24px] max-w-440px text-center">
                 <Btn
-                  className="w-full bg-red-600 hover:bg-red-700 font-bold py-3 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 min-h-[64px]"
+                  className="w-full text-white bg-red-600 hover:bg-red-700 font-bold py-3 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 min-h-[64px]"
                   type="button"
                   name="Sign Up"
                   handleBtn={register}

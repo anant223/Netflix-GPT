@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
      {!isRouterBrowse ? <header
-        className={`mx-auto sm:px-[60px] px-4 w-full absolute py-[1.5rem] z-40`}
+        className={` text-white mx-auto sm:px-[60px] px-4 w-full absolute py-[1.5rem] z-40`}
       >
         <Container>
           <div className={`flex justify-between items-center`}>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { QNAContent } from '../../constant/constant';
-import { Footer } from '../Main';
 
 const Faq = () => {
   const [isActiveIndex, setIsActiveIndex] = useState(null)
@@ -12,7 +11,7 @@ const Faq = () => {
   return (
     <div>
     <div className="bg-black sm:py-[4.5rem] py-[3.5rem]  border-t-8 border-gray-700 ">
-      <div className=" max-w-[1550px] mx-auto px-[150px]">
+      <div className=" max-w-[1550px] mx-auto sm:px-[150px] px-[20px]">
         <h2 className="sm:text-5xl text-3xl sm:font-[900] font-bold text-center">
           Frequently Asked Questions
         </h2>

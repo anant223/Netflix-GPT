@@ -6,7 +6,6 @@ import {
   VideoDetails,
 } from "../components/Main";
 import { TMDBMedia } from "../constant/TMDB";
-import { Link } from "react-router-dom";
 import TMDB_API_OPTION from "../config/tmdbConfig";
 import useApi from "../hooks/useApi";
 import ShimmerComponent from "../shimmer/Shimmer";

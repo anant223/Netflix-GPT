@@ -58,7 +58,8 @@ const MoviesContent = ({ title, data, searchData, className }) => {
                 key={movie.id}
                 className="sm:w-[180px] sm:min-w-[180px] w-[168px] min-w-[168px] m-[10px]"
               >
-                <Link to={`/movie/${movie.id}`}>
+                {/* // `/movie/${movie.id}` */}
+                <Link to="#">
                   <img
                     src={`https://media.themoviedb.org/t/p/w440_and_h660_face${movie.poster_path}`}
                     alt={movie.title || "poster"}
