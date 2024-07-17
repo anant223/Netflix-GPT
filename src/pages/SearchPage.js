@@ -13,7 +13,7 @@ const SearchPage = () => {
           <Container>
             <MoviesContent
               searchData={searchData}
-              className={"flex flex-wrap gap-5"}
+              className={" grid grid-cols-2 gap-5 pr-10"}
             />
           </Container>
         </div>
