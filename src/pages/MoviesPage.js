@@ -1,11 +1,10 @@
 import React from 'react'
-import {Video, MoviesContent} from '../components/Main'
+import {Video, MoviesContent, ShimmerComponent} from '../components/Main'
 import {generMovie, TMDBMediaMovies} from '../constant/TMDB'
 import Gener from '../components/Gener'
 import useScroll from '../hooks/useScroll'
 import useApi from '../hooks/useApi'
 import TMDB_API_OPTION from '../config/tmdbConfig'
-import ShimmerComponent from "../shimmer/Shimmer";
 
 
 const MoviesPage = () => {

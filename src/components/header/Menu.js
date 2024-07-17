@@ -45,7 +45,7 @@ const Menu = () => {
   return (
     <div
       className={`text-white h-auto min-h-[70px] text-[.75vw]">
-      <div className=" flex justify-between  items-center  text-[14px] sm:px-[60px] px-[10px] ${
+      <div className=" flex justify-between  items-center  text-[14px] sm:px-[60px] z-40 px-[10px] ${
         scroll.y > 0
           ? "bg-black fixed w-full"
           : "bg-gradient-to-b from-black to-transparent sticky"
@@ -97,7 +97,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="  z-40 flex items-center justify-center sm:gap-5 relative">
+      <div className=" flex items-center justify-center sm:gap-5 relative">
         <div className="">
           <Searchbar />
         </div>

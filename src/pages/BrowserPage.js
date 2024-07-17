@@ -3,12 +3,11 @@ import {
   Container,
   Video,
   MoviesContent,
-  VideoDetails,
+  VideoDetails, ShimmerComponent
 } from "../components/Main";
 import { TMDBMedia } from "../constant/TMDB";
 import TMDB_API_OPTION from "../config/tmdbConfig";
 import useApi from "../hooks/useApi";
-import ShimmerComponent from "../shimmer/Shimmer";
 
 const BrowserPage = () => {
   const { state, isLoading } = useApi(TMDBMedia[0].api, TMDB_API_OPTION);
@@ -40,7 +39,7 @@ const BrowserPage = () => {
               />
           </div>
 
-          <div className="relative z-20 flex flex-col sm:-mt-[38px] sm:bottom-10">
+          <div className="relative z-30 flex flex-col sm:-mt-[38px] sm:bottom-10">
             {TMDBMedia.map((item) => (
               <MoviesContent
                 key={item.id}

@@ -14,6 +14,7 @@ import HeroSection from "./Hero/HeroSection";
 import MoviesContent from "./MoviesContent";
 import Video from "./Video"
 import VideoDetails from "./VideoDetails";
+import ShimmerComponent from "../shimmer/Shimmer";
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   Video,
   MoviesContent,
   VideoDetails,
+  ShimmerComponent
 };
