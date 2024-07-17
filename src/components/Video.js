@@ -36,7 +36,7 @@ const Video = ({ media_id, media_type, media_poster }) => {
         className="relative top-0 left-0 w-full h-full"
       >
         <MediaProvider>
-          <div className="bg-green-500 absolute z-20 w-full h-full 
+          <div className="bg-black bg-opacity-75 absolute z-20 w-full h-full 
          "></div>
           {/* Place CustomizeBtn outside the overlay div */}
         </MediaProvider>
